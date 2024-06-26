@@ -3,8 +3,9 @@
 from base_caching import BaseCaching
 
 
-class BasicCache(BaseCashing):
+class BasicCache(BaseCaching):
     """BaseCaching"""
+
     def put(self, key, item):
         """assign to the dict cach_data the
         'item' value for the 'key'"""
@@ -13,7 +14,4 @@ class BasicCache(BaseCashing):
 
     def get(self, key):
         """return dict cach_data"""
-        if key is None or key not in self.cache_data:
-            return None
-        else:
-            return self.cache_data[key]
+        return self.cache_data.get(key, None)
