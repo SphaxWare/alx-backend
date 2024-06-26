@@ -15,7 +15,9 @@ class FIFOCache(BaseCaching):
         Must assign to the dictionary self.cache_data
         the item value for the key key.
         """
-        if key  and item:
+        if key is None or item is None:
+            return
+        if key and item:
             if len(self.cache_data) == BaseCaching.MAX_ITEMS:
                 if key in self.cache_data:
                     self.cache_data[key] = item
