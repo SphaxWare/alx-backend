@@ -19,11 +19,14 @@ class LRUCache(BaseCaching):
             return
         if key and item:
             if len(self.cache_data) == BaseCaching.MAX_ITEMS:
-                if key not in self.cache_data:
+                if key in self.cache_data:
+                    self.cache_data[key] = item
+                else:
                     lru, _ = self.cache_data.popitem(True)
                     print("DISCARD: {}".format(lru))
+                    self.cache_data[key] = item
+                    self.cache_data.move_to_end(key, last=False)
             self.cache_data[key] = item
-            self.cache_data.move_to_end(key, last=False)
 
     def get(self, key):
         """"
