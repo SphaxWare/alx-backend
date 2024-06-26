@@ -24,9 +24,8 @@ class LRUCache(BaseCaching):
                 else:
                     lru, _ = self.cache_data.popitem(True)
                     print("DISCARD: {}".format(lru))
-                    self.cache_data[key] = item
-                    self.cache_data.move_to_end(key, last=False)
             self.cache_data[key] = item
+            self.cache_data.move_to_end(key, last=False)
 
     def get(self, key):
         """"
