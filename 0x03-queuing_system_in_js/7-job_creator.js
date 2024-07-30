@@ -57,7 +57,7 @@ jobs.forEach((jobData, index) => {
     .save((err) => {
       // If there is no error, log to the console Notification...
       if (!err) {
-        console.log('Notification job created: ${job.id}');
+        console.log(`Notification job created: ${job.id}`);
       }
     });
 
